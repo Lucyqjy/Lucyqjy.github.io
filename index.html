@@ -99,14 +99,8 @@
       
         <h2 id="实验3——利用云平台搭建个人博客"><a href="#实验3——利用云平台搭建个人博客" class="headerlink" title="实验3——利用云平台搭建个人博客"></a>实验3——利用云平台搭建个人博客</h2><p>实验目的：本实验旨在通过实践操作，掌握基于云计算环境的网站部署技能。</p>
 <p>具体包括：构建环境并实现个人博客&#x2F;网站的搭建，撰写实验报告，并将这份报告作为一篇博文发布在自己的博客 &#x2F; 网站上。</p>
-<ol>
-<li><h4 id="在github平台注册并登录"><a href="#在github平台注册并登录" class="headerlink" title="在github平台注册并登录"></a>在github平台注册并登录</h4></li>
-</ol>
-<p><img src="/2025/03/13/lab3-report/031301.png"></p>
-<ol start="2">
-<li><h4 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h4></li>
-</ol>
-<p>登录node.js官网<a target="_blank" rel="noopener" href="https://nodejs.cn/%E4%B8%8B%E8%BD%BD%E9%95%BF%E6%9C%9F%E6%94%AF%E6%8C%81%E7%89%88%E6%9C%AC">https://nodejs.cn/下载长期支持版本</a></p>
+<h4 id="1-在github平台注册并登录"><a href="#1-在github平台注册并登录" class="headerlink" title="1.在github平台注册并登录"></a>1.在github平台注册并登录</h4><p><img src="/2025/03/13/lab3-report/031301.png"></p>
+<h4 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2.安装Node.js"></a>2.安装Node.js</h4><p>登录node.js官网<a target="_blank" rel="noopener" href="https://nodejs.cn/%E4%B8%8B%E8%BD%BD%E9%95%BF%E6%9C%9F%E6%94%AF%E6%8C%81%E7%89%88%E6%9C%AC">https://nodejs.cn/下载长期支持版本</a></p>
 <img src="/2025/03/13/lab3-report/031302.png" style="zoom:50%;">
 
 <img src="/2025/03/13/lab3-report/031303.png" style="zoom:50%;">
@@ -115,11 +109,47 @@
 <img src="/2025/03/13/lab3-report/031304.png" style="zoom:60%;">
 
 <p>由此可以知道，node.js已经安装成功。</p>
+<h4 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h4><p>在D盘下新建一个Myblog文件夹用于存放发布的博客，在Myblog文件夹中右键单击打开Git Bash，输入npm install -g hexo-cli进行安装，安装完成后输入hexo -v检查安装是否成功：</p>
+<p><img src="/2025/03/13/lab3-report/031305.png"></p>
+<p>可以看到，已经成功安装hexo相关环境文件。</p>
+<h4 id="4-搭建简单的建设网站"><a href="#4-搭建简单的建设网站" class="headerlink" title="4.搭建简单的建设网站"></a>4.搭建简单的建设网站</h4><p>仍然在Myblog文件夹中，打开Bash，输入hexo init初始化网页，成功运行后可以在文件夹中看到多个文件夹以及文件。</p>
+<p>【在课上实验的过程中，遇到了一些问题，为了确保能够顺利登录github网站，在实验过程中开启了Steam++带有的网络加速器，导致在hexo init这一步过程中持续出现如下报错：</p>
+<p><img src="/2025/03/13/lab3-report/031306.png"></p>
+<p>通过直观感受只看到了”Error:EPERM:operation not permitted,mkdir ‘D:\’ at async object.mkdir(node:internal&#x2F;fs&#x2F;promises:857:10)”这一条报错，因此浪费了大量的时间在检查访问权限上，导致没有当堂完成实验并且验收，但是实际上的问题是在上方的白色字体中”SSL certificate problem:unable to get local isser certificate”无法获得本地许可才是出错的根本原因，课下解决此问题的时候关闭了Steam++加速器后即可正常进行hexo init的文件下载】</p>
+<p><img src="/2025/03/13/lab3-report/031307.png"></p>
+<img src="/2025/03/13/lab3-report/031308.png" style="zoom:60%;">
+
+<p>至此，搭建网站所需的最基本的文件已经下载完成。</p>
+<p>在bash中输入hexo g生成静态网页，然后输入hexo s打开本地服务器：</p>
+<p><img src="/2025/03/13/lab3-report/031309.png"></p>
+<p>按住Ctrl键单击bash中给出的网址可以浏览博客主页</p>
+<p><img src="/2025/03/13/lab3-report/031310.png"></p>
+<p>在bash中输入hexo new “帖子名”发布新帖子。</p>
+<h4 id="5-连接本地与github远程服务器"><a href="#5-连接本地与github远程服务器" class="headerlink" title="5.连接本地与github远程服务器"></a>5.连接本地与github远程服务器</h4><p>登录github账号，新建仓库名为Lucyqjy.github.io的仓库（为了分配得到域名为<a target="_blank" rel="noopener" href="http://lucyqjy.github.io的网址)/">http://Lucyqjy.github.io的网址）</a></p>
+<p>在bash中输入git config –global user.name Lucyqjy后回车再输入git config –global user.email <a href="mailto:&#113;&#x64;&#113;&#x69;&#x75;&#106;&#x69;&#110;&#x79;&#117;&#97;&#x6e;&#x40;&#x31;&#50;&#54;&#46;&#x63;&#x6f;&#x6d;">qdqiujinyuan@126.com</a> 登录github用户名和邮箱；</p>
+<p><img src="/2025/03/13/lab3-report/031311.png"></p>
+<p>输入ssh-keygen -t rsa -C <a href="mailto:&#x71;&#x64;&#113;&#105;&#x75;&#106;&#105;&#110;&#121;&#117;&#x61;&#x6e;&#64;&#x31;&#x32;&#54;&#46;&#99;&#x6f;&#x6d;">qdqiujinyuan@126.com</a> 生成SSH RSA密钥，回车后在文件夹下C:\Users\qdqiu.ssh可以找到id_rsa.pub文件，复制文件中的rsa密钥添加至github的setting中的SSH and GPG keys中，作为一个新的SSH密钥；</p>
+<p><img src="/2025/03/13/lab3-report/031312.png"></p>
+<p>在git bash中输入ssh -T <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#x6d;">git@github.com</a>，回车可以得到下图，说明本地与github远程服务器连接成功。</p>
+<p><img src="/2025/03/13/lab3-report/031313.png"></p>
+<h4 id="6-将本地项目部署至github"><a href="#6-将本地项目部署至github" class="headerlink" title="6.将本地项目部署至github"></a>6.将本地项目部署至github</h4><p>修改Myblog文件夹中的_config.yml文件，将最后一个配置网址改为仓库地址：</p>
+<p><img src="/2025/03/13/lab3-report/031314.png"></p>
+<p>在bash中输入npm install hexo-deployer-git –save安装工具；</p>
+<p>  输入hexo d将本地项目推送到github中</p>
+<p><img src="/2025/03/13/lab3-report/031316.png"></p>
+<p><img src="/2025/03/13/lab3-report/031317.png"></p>
+<p>Bash中提示信息Deploy done:git表明已经将本地文件推送至github仓库中；</p>
+<p>此时打开Lucyqjy.github.io仓库的setting，找到Pages设置（这里需要确保仓库是public属性，private仓库无法进行构建和部署配置）</p>
+<p>将Build and deployment部分配置如下图：</p>
+<p><img src="/2025/03/13/lab3-report/031318.png"></p>
+<p>配置后刷新页面得到github给出的个人网址，此时即可访问个人网站</p>
+<p><img src="/2025/03/13/lab3-report/031320.png"></p>
+<p>至此，个人博客主页的基础搭建和配置就结束了。但是可以注意到，当前网页还非常的（丑陋）简陋，因此可以进行部分博客网页的美化工作。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lucyqjy.github.io/2025/03/13/lab3-report/" data-id="cm871zb3s00028cxy7wda695c" data-title="lab3_report" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://lucyqjy.github.io/2025/03/13/lab3-report/" data-id="cm872jeo900024sxy4720cta6" data-title="lab3_report" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -160,7 +190,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lucyqjy.github.io/2025/03/13/Profile/" data-id="cm871zb3o00008cxy0o87878o" data-title="Profile" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://lucyqjy.github.io/2025/03/13/Profile/" data-id="cm872jeo500004sxy7fp466p6" data-title="Profile" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -211,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lucyqjy.github.io/2025/03/13/hello-world/" data-id="cm871zb3q00018cxy5p7khfgq" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://lucyqjy.github.io/2025/03/13/hello-world/" data-id="cm872jeo700014sxy1uj1gkum" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
