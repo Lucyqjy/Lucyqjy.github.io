@@ -8,7 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io  # 使用GitHub容器注册表
-  IMAGE_NAME: ${{ Lucyqjy.github.io }}  # 使用仓库名作为镜像名
+  IMAGE_NAME: ${{ github.repository }}  # 使用仓库名作为镜像名
 
 jobs:
   build-and-push:
