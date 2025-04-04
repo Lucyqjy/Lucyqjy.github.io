@@ -1,8 +1,8 @@
-# 使用轻量级的Nginx作为基础镜像
-FROM nginx:alpine
+# 使用官方Ubuntu镜像作为基础镜像
+FROM ubuntu:22.04
 
 # 更新软件包列表
-RUN apt-get update
+RUN apt-get update && apt-get install -y your-package
 
 # 安装 nginx
 RUN apt-get install -y nginx
