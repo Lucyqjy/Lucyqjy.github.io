@@ -2,7 +2,7 @@
 FROM ubuntu:22.04
 
 # 更新软件包列表
-RUN apt-get update && apt-get install -y your-package
+RUN apt-get update 
 
 # 安装 nginx
 RUN apt-get install -y nginx
